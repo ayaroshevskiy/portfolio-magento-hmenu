@@ -1,0 +1,13 @@
+<config>
+  <modules>
+    <Holoflek_Menu>
+      <active>true</active>
+      <codePool>local</codePool>
+        <depends>
+            <Mage_Cms />
+            <Mage_Customer />
+            <Mage_Checkout />
+        </depends>
+    </Holoflek_Menu>
+  </modules>
+</config>

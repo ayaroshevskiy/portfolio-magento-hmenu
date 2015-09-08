@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Holoflek_Menu>
+            <version>0.1.0</version>
+        </Holoflek_Menu>
+    </modules>
+    <global>
+        <helpers>
+            <holoflek_menu>
+                <class>Holoflek_Menu_Helper</class>
+            </holoflek_menu>
+        </helpers>
+        <blocks>
+            <holoflek_menu>
+                <class>Holoflek_Menu_Block</class>
+            </holoflek_menu>
+        </blocks>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <holoflek_menu>
+                    <file>holoflek/menu.xml</file>
+                </holoflek_menu>
+            </updates>
+        </layout>
+    </frontend>
+</config>

@@ -1,0 +1,5 @@
+# Holoflek_Menu
+code                    app/code/local/Holoflek/Menu/
+frontend/layout/*       app/design/frontend/base/default/layout/holoflek/
+frontend/template/*     app/design/frontend/base/default/template/holoflek/menu
+Holoflek_Menu.xml       app/etc/modules/Holoflek_Menu.xml

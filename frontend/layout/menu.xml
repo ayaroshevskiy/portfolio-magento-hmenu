@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     holoflek_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+-->
+<layout version="0.1.0">
+
+    <default>
+        <reference name="header">
+            <block type="page/template_links" name="main.menu" as="mainMenu">
+                <action method="setTemplate"><template>holoflek/menu/mainmenu.phtml</template></action>
+                <action method="addLink" translate="label title" module="cms">
+                    <label>Our Products</label>
+                    <url helper="cms/page/getPageUrl"><pageId>products</pageId></url>
+                    <title>Our Products</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                    <liParams>
+                        <class>our-products</class>
+                    </liParams>
+                </action>
+                <action method="addLink" translate="label title" module="holoflek_menu">
+                    <label>Shop</label>
+                    <url helper="holoflek_menu/getCategoryUrl"><categoryId>4</categoryId></url>
+                    <title>Shop</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>20</position>
+                    <liParams>
+                        <class>shop</class>
+                    </liParams>
+                </action>
+                <action method="addLink" translate="label title" module="cms">
+                    <label>About Us</label>
+                    <url helper="cms/page/getPageUrl"><pageId>about-us</pageId></url>
+                    <title>About Us</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>30</position>
+                    <liParams>
+                        <class>about-us</class>
+                    </liParams>
+                </action>
+            </block>
+            <block type="page/template_links" name="icon.menu" as="iconMenu">
+                <action method="setTemplate"><template>holoflek/menu/iconmenu.phtml</template></action>
+                <action method="addLink" translate="label title" module="page">
+                    <label>Mail</label>
+                    <url><![CDATA[mailto:info@holoflek.com]]></url>
+                    <title>Mail</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                    <liParams>
+                        <class>mail</class>
+                    </liParams>
+                </action>
+                <action method="addLink" translate="label title" module="customer">
+                    <label>Your Profile</label>
+                    <url helper="customer/getAccountUrl"/>
+                    <title>Your Profile</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>20</position>
+                    <liParams>
+                        <class>profile</class>
+                    </liParams>
+                </action>
+                <block type="holoflek_menu/checkout_links" name="checkout_cart_link" >
+                    <block type="page/html_wrapper" name="cart_top_link_drop" as="cart_top_link_drop" translate="label" module="holoflek_menu">
+                        <label>Block for drop down of Cart link.</label>
+                        <action method="setElementClass"><value>block block-cart skip-content header-minicart</value></action>
+                        <action method="setElementId"><value>header-cart</value></action>
+
+                        <block type="checkout/cart_minicart" name="minicart_head" template="checkout/cart/minicart.phtml" before="-">
+                            <block type="checkout/cart_sidebar" name="minicart_content" template="checkout/cart/minicart/items.phtml">
+                                <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>checkout/cart/minicart/default.phtml</template></action>
+                                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/minicart/default.phtml</template></action>
+                                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/minicart/default.phtml</template></action>
+                                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/minicart/default.phtml</template></action>
+
+                                <block type="core/text_list" name="cart_sidebar.cart_promotion" as="cart_promotion" translate="label" module="checkout">
+                                    <label>Mini-cart promotion block</label>
+                                </block>
+                                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                                    <label>Shopping Cart Sidebar Extra Actions</label>
+                                </block>
+                            </block>
+                        </block>
+
+                    </block>
+                    <action method="addCartLink"></action>
+                </block>
+            </block>
+        </reference>
+    </default>
+
+</layout>
